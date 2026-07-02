@@ -1088,46 +1088,26 @@ footer {
         </div>
       </div>
       <div data-reveal style="--delay:120ms">
-        <div class="checklist-form-wrap">
-          <div class="checklist-form-title">Ricevi la checklist completa.</div>
-          <p class="checklist-form-sub">10 domande operative utilizzate in ogni diagnosi iniziale. Gratuite, senza impegno. Utili anche senza di me.</p>
-          <form onsubmit="handleForm(event)">
-            <div class="form-field">
-              <label for="nome">Nome e cognome</label>
-              <input type="text" id="nome" name="nome" placeholder="Mario Rossi" required>
-            </div>
-            <div class="form-field">
-              <label for="email">Email aziendale</label>
-              <input type="email" id="email" name="email" placeholder="mario@azienda.it" required>
-            </div>
-            <div class="form-field">
-              <label for="ruolo">Ruolo</label>
-              <select id="ruolo" name="ruolo" required>
-                <option value="" disabled selected>Seleziona</option>
-                <option>Titolare / CEO</option>
-                <option>Direttore Commerciale</option>
-                <option>Sales Manager / Export Manager</option>
-                <option>HR / Responsabile Formazione</option>
-                <option>Area Manager</option>
-                <option>Altro</option>
-              </select>
-            </div>
-            <div class="form-field">
-              <label for="settore">Settore</label>
-              <select id="settore" name="settore">
-                <option value="" disabled selected>Seleziona</option>
-                <option>Food &amp; Beverage premium</option>
-                <option>Arredamento / Design</option>
-                <option>Moda / Fashion</option>
-                <option>Cosmetica / Farmaceutica</option>
-                <option>Chimica industriale</option>
-                <option>Rubinetteria / Bagno</option>
-                <option>Altro manifatturiero</option>
-              </select>
-            </div>
-            <button type="submit" class="form-submit">Invia la checklist</button>
-          </form>
-          <p class="form-privacy">Nessuna comunicazione commerciale automatica. I dati non vengono ceduti a terzi.</p>
+        <div class="checklist-form-wrap" style="padding:0; overflow:hidden; background:transparent; border:none;">
+          <div style="padding:32px 36px 16px; background:var(--white); border:1px solid var(--rule);">
+            <div class="checklist-form-title">Fai la diagnosi adesso.</div>
+            <p class="checklist-form-sub">10 domande operative — le stesse usate in ogni analisi preliminare. Compila il form: ricevi un feedback personalizzato entro 48 ore.</p>
+          </div>
+          <div style="background:var(--white); border:1px solid var(--rule); border-top:none; overflow:hidden;">
+            <iframe
+              src="https://docs.google.com/forms/d/e/1FAIpQLSdegrDmuuF7-z300kE1A-HQ4-TAtpb2T3YzIo0B3YSWyj892g/viewform?embedded=true&hl=it"
+              width="100%"
+              height="2200"
+              frameborder="0"
+              marginheight="0"
+              marginwidth="0"
+              style="display:block; border:none; width:100%; min-height:2200px;"
+              title="Diagnosi Commerciale — Dennis Comunian"
+              loading="lazy">
+              Caricamento…
+            </iframe>
+          </div>
+          <p class="form-privacy" style="padding:12px 36px 20px; background:var(--white); border:1px solid var(--rule); border-top:none;">Nessuna comunicazione commerciale automatica. I dati non vengono ceduti a terzi.</p>
         </div>
       </div>
     </div>
@@ -1193,17 +1173,7 @@ const observer = new IntersectionObserver((entries) => {
 
 document.querySelectorAll('[data-reveal]').forEach(el => observer.observe(el));
 
-// Form handler
-function handleForm(e) {
-  e.preventDefault();
-  const btn = e.target.querySelector('.form-submit');
-  btn.textContent = 'Invio in corso...';
-  btn.disabled = true;
-  setTimeout(() => {
-    btn.textContent = 'Checklist inviata. Controlla la tua email.';
-    btn.style.background = '#5c3d5e';
-  }, 1200);
-}
+// Form gestito da Google Forms
 </script>
 
 </body>
